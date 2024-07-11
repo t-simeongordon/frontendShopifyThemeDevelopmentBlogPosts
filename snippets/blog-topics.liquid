@@ -2,9 +2,9 @@
 
       <div class="article">
         {% if blogArticle.image %}
-          <img src="{{ article.image.src | image_url: width: 1800 }}" alt="{{ article.image.alt }}" width="1800" height="400">
-          {% else %}
-          {{ 'image' | placeholder_svg_tag: '1800x400', 'Placeholder Image' }}
+          <img src="{{ blogArticle.image.src |  image_url: width: 1800 }}" alt="{{ blogArticle.image.alt }}">
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: '400x400', 'Placeholder Image' }}
         {% endif %}
         <h3 class="article-title">{{ blogArticle.title }}</h3>
         <p class="article-description">{{ blogArticle.content | strip_html | truncate: 100 }}</p>
