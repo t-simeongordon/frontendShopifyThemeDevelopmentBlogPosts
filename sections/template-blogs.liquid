@@ -5,7 +5,7 @@
       {% assign currentBlog = blogs[blogName] %}
       {% if currentBlog %}
         {% for article in currentBlog.articles %}
-          {% render 'blog-news', blogArticle: article %}
+          {% render 'blog-topics', blogArticle: article %}
         {% endfor %}
       {% else %}
         <p>No articles found in this blog.</p>

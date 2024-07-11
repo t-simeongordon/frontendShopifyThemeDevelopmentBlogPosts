@@ -1,7 +1,7 @@
 {
     "sections": {
       "main": {
-        "type": "template-blogs-example"
+        "type": "template-blogs"
       }
     },
     "order": [
