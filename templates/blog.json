@@ -1,0 +1,11 @@
+{
+    "sections": {
+      "main": {
+        "type": "template-blogs-example"
+      }
+    },
+    "order": [
+      "main"
+    ]
+  }
+  

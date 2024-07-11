@@ -1,0 +1,52 @@
+{% schema %}
+  {
+    "name": "Blogs and Articles",
+    "settings": []
+  }
+  {% endschema %}
+  
+  <div class="blog-list">
+    {% for blog in blogs %}
+      <div class="blog">
+        <h2>{{ blog.title }}</h2>
+        <p>{{ blog.description }}</p>
+        <div class="articles">
+          {% paginate blog.articles by 5 %}
+            {% for article in blog.articles %}
+              <div class="article">
+                {% if article.image %}
+                  <img src="{{ article.image.src }}" alt="{{ article.image.alt }}">
+                {% endif %}
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.excerpt | strip_html | truncate: 200 }}</p>
+                <a href="{{ article.url }}">Read more</a>
+              </div>
+            {% endfor %}
+            <div class="pagination">
+              {% if paginate.previous %}
+                <a href="{{ paginate.previous.url }}">Previous</a>
+              {% endif %}
+              {% for part in paginate.parts %}
+                {% if part.is_link %}
+                  <a href="{{ part.url }}">{{ part.title }}</a>
+                {% else %}
+                  <span>{{ part.title }}</span>
+                {% endif %}
+              {% endfor %}
+              {% if paginate.next %}
+                <a href="{{ paginate.next.url }}">Next</a>
+              {% endif %}
+            </div>
+          {% endpaginate %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  
+  <style>
+    .blog-list { margin: 20px 0; }
+    .blog { margin-bottom: 40px; }
+    .article { margin-bottom: 20px; }
+    .article img { max-width: 100%; height: auto; }
+  </style>
