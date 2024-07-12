@@ -1,0 +1,105 @@
+{% assign blogNames = section.settings.blogList | split: "," %}
+<div class="all-blogs">
+  <div class="blog-section">
+    <div class="article">
+          <img src="{{ section.settings.blog-feature-img |  image_url: width: 1800 }}" alt="{{ section.settings.blog-feature-img-alt }}">
+        <h3 class="article-title">{{ section.settings.blog-feature-title }}</h3>
+        <p class="article-description">{{ section.settings.blog-feature-description | strip_html | truncate: 100 }}</p>
+        <a class="article-link" href="{{ section.settings.blog-feature-link }}">Read more</a>
+      </div>
+  </div>
+</div>
+
+<style>
+.all-blogs {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-section{
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+
+
+.article {
+  width: 100%;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.article img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.article-description {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.article-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.article-link:hover {
+  background-color: #0056b3;
+}
+
+</style>
+
+{% schema %}
+{
+    "name": "Blog feature",
+    "settings": [
+        {
+            "type": "text",
+            "id": "blog-feature-title",
+            "label": "blog feature title",
+            "default": "feature"
+        },
+        {
+            "type": "text",
+            "id": "blog-feature-description",
+            "label": "blog feature description",
+            "default": "blank"
+        },
+        {
+            "type": "text",
+            "id": "blog-feature-img",
+            "label": "blog feature image",
+            "default": "https://cdn.shopify.com/s/files/1/0563/8347/1662/files/image-1600x400.png?v=1720730005"
+        },
+        {
+            "type": "text",
+            "id": "blog-feature-img-alt",
+            "label": "blog feature image alt"
+        },
+        {
+            "type": "text",
+            "id": "blog-feature-link",
+            "label": "blog feature link",
+            "default": "https://shopify.dev/docs/api/liquid/filters/array-filters"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Blog feature"
+        }
+    ]
+}
+{% endschema %}

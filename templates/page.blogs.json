@@ -1,10 +1,18 @@
 {
     "sections": {
-        "template": {
-            "type": "template-blogs"
-        }
+      "template-blog-topic": {
+        "type": "template-blog-topic"
+      },
+      "template-blog-feature":{
+        "type": "template-blog-feature"
+      },
+      "template-blog-latest-content":{
+        "type": "template-blog-latest-content"
+      }
     },
     "order": [
-        "template"
+      "template-blog-topic",
+      "template-blog-feature",
+      "template-blog-latest-content"
     ]
-}
+  }
