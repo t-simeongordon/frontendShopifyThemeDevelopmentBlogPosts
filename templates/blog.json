@@ -1,15 +1,18 @@
 {
-    "sections": {
-      "template-blog-topic": {
-        "type": "template-blog-topic"
-      },
-      "template-blog-feature":{
-        "type": "template-blog-feature"
-      }
+  "sections": {
+    "template-blog-topic": {
+      "type": "template-blog-topic"
     },
-    "order": [
-      "template-blog-topic",
-      "template-blog-feature"
-    ]
-  }
-  
+    "template-blog-feature":{
+      "type": "template-blog-feature"
+    },
+    "template-blog-latest-content":{
+      "type": "template-blog-latest-content"
+    }
+  },
+  "order": [
+    "template-blog-topic",
+    "template-blog-feature",
+    "template-blog-latest-content"
+  ]
+}

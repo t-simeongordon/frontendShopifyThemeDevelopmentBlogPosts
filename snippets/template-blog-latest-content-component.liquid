@@ -1,0 +1,41 @@
+<section class="latest-news-container">
+    <div class="latest-news-image">
+        {% if blogArticle.image %}
+        <img src="{{ blogArticle.image.src |  image_url: width: 700 }}" alt="{{ blogArticle.image.alt }}">
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: '1200x400', 'Placeholder Image' }}
+        {% endif %}    </div>
+    <div class="latest-news-content">
+        <h1 class="latest-content-title">{{ blogArticle.title }}</h1>
+        <p class="latest-content-description">{{ blogArticle.content | strip_html | truncate: 100 }}</p>
+    </div>
+
+</section>
+
+<style>
+    .latest-news-container{
+        display: flex;
+        flex-direction: row;  
+    }
+
+    .latest-news-image{
+        background-color: aquamarine;
+        padding: 3%;
+    }
+
+    .latest-news-content{
+        background-color: blueviolet;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3%;
+    }
+
+    .latest-content-title{
+        font-size: 72px;
+    }
+
+    .latest-content-description{
+        font-size: 12px;
+    }
+</style>

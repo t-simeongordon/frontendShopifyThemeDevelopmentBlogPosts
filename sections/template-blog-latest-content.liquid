@@ -1,28 +1,26 @@
-<section class="latest-news-container">
-    <div class="latest-news-image">
-        {% if blogArticle.image %}
-        <img src="{{ blogArticle.image.src |  image_url: width: 1800 }}" alt="{{ blogArticle.image.alt }}">
-        {% else %}
-          {{ 'image' | placeholder_svg_tag: '1200x400', 'Placeholder Image' }}
-        {% endif %}    </div>
-    <div class="latest-news-description">
-        <h3 class="latest-content-title">{{ blogArticle.title }}</h3>
-        <p class="latest-content-description">{{ blogArticle.content | strip_html | truncate: 100 }}</p>
-    </div>
+{% assign blogNames = "latest-content" %}
+<div>
+      {% assign currentBlog = blogs["content"] %}
+      <h1> {{ currentBlog.title }} </h1>
+      {% if currentBlog %}
+        {% for article in currentBlog.articles %}
+          {% comment %} {{ article.title }} {% endcomment %}
+          {% render 'template-blog-latest-content-component', blogArticle: article %}
+        {% endfor %}
+      {% else %}
+        <p>No articles found in this blog.</p>
+      {% endif %}
+</div>
 
-</section>
 
-<style>
-    .container{
-        display: grid;
-        grid-template-columns: 2fr;
-    }
-
-    .latest-news-image{
-        background-color: aquamarine;
-    }
-
-    .latest-news-description{
-        background-color: blueviolet;
-    }
-</style>
+{% schema %}
+{
+  "name": "Blog post",
+  "settings": [],
+    "presets": [
+        {
+            "name": "Blog collection"
+        }
+    ]
+}
+{% endschema %}

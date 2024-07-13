@@ -11,24 +11,21 @@
         <p>No articles found in this blog.</p>
       {% endif %}
     {% endfor %}
-
   </div>
-  {% comment %} {% render 'blog-content' %} {% endcomment %}
-
-  <!-- Add more sections for other blogs -->
 </div>
 
 <style>
-    .all-blogs {
-  display: flex;
-  flex-direction: column;
-}
+  .all-blogs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-.blog-section{
-  width: 100%;
-  max-width: 1200px;
-  margin-bottom: 40px;
-}
+  .blog-section{
+    width: 100%;
+    margin-bottom: 40px;
+  }
 
 
 </style>
