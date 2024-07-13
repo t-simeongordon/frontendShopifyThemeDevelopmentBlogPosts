@@ -1,13 +1,14 @@
 <section class="latest-news-container">
     <div class="latest-news-image">
         {% if blogArticle.image %}
-        <img src="{{ blogArticle.image.src |  image_url: width: 700 }}" alt="{{ blogArticle.image.alt }}">
+            <img src="{{ blogArticle.image.src |  image_url: width: 700, height: 400 }}"  alt="{{ blogArticle.image.alt }}">
         {% else %}
-          {{ 'image' | placeholder_svg_tag: '1200x400', 'Placeholder Image' }}
-        {% endif %}    </div>
+            {{ 'image' | placeholder_svg_tag: '1200x400', 'Placeholder Image' }}
+        {% endif %}    
+    </div>
     <div class="latest-news-content">
         <h1 class="latest-content-title">{{ blogArticle.title }}</h1>
-        <p class="latest-content-description">{{ blogArticle.content | strip_html | truncate: 100 }}</p>
+        <p class="latest-content-description">{{ article.published_at | time_tag: format: 'date' }}</p>
     </div>
 
 </section>
