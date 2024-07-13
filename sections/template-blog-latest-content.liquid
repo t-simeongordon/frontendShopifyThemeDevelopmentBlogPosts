@@ -1,22 +1,26 @@
 {% assign blogNames = "latest-content" %}
 <div class="blog-divider"></div>
 <div>
-      {% assign currentBlog = blogs["content"] %}
-      <h1> {{ currentBlog.title }} </h1>
+      {% assign currentBlog = blogs["latest-news"] %}
+      <h1 class="latest-content-title">{{ currentBlog.title }}</h1>
       {% if currentBlog %}
         {% for article in currentBlog.articles %}
-          {% comment %} {{ article.title }} {% endcomment %}
           {% render 'template-blog-latest-content-component', blogArticle: article %}
         {% endfor %}
       {% else %}
         <p>No articles found in this blog.</p>
       {% endif %}
 </div>
+
 <style>
   .blog-divider{
     background-color: #D9D9D9;
     height: 100px;
     width: 100%;
+  }
+
+  .latest-content-title{
+    padding-left: 3%;
   }
 </style>
 
