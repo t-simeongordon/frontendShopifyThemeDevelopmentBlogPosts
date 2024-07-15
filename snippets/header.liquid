@@ -1,0 +1,154 @@
+<section class="section-header">
+    <nav class="nav">
+      <div class="container">
+        <div class="pillars">
+          {% for link in linklists.freelance.links %}
+            <div class="route-container">
+              <a href="{{ link.url }}" class="route">{{ link.title }}</a>
+              <div class="dropdown">
+                <a href="">link 1</a>
+                <a href="">link 1</a>
+                <a href="">link 1</a>
+                <a href="">link 1</a>
+              </div>
+            </div>
+                      
+       
+          {% endfor %}
+        </div>
+
+        <div class="title">
+          <h1 class="logo"><a href="{{ routes.root_url }}">{{ shop.name }}</a></h1>
+        </div>
+
+        <ul>
+          <li><a href="{{ routes.search_url }}" class="current">
+            {% render "search-icon" %}
+          </a></li>
+          <li><a href="{{ routes.account_login_url }}">
+            {% render "user-icon" %}
+          </a></li>
+          <li><a href="#">
+            {% render "bookmark-icon" %}
+          </a></li>
+          <li><a href="{{ routes.cart_url }}">
+            {% render "cart-icon" %}
+          </a></li>
+        </ul>
+      </div>
+    </nav>
+</section>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/* Header styles */
+.section-header {
+        z-index: 2;
+        position: relative;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav {
+        position: fixed;
+        background-color: azure;
+        top: 0;
+        left: 0;
+        right: 0;
+        transition: all 0.3s ease-in-out;
+        background-color: #fff;
+        z-index: 10; /* Ensures it stays above other elements */
+    }
+
+    .nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav ul {
+        display: flex;
+        list-style-type: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav a {
+        color: black;
+        text-decoration: none;
+        padding: 20px 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav.active {
+        background-color: #fff;
+    }
+
+    .nav.active a {
+        color: #000;
+    }
+
+    .nav.active .container {
+        padding: 10px 0;
+    }
+
+    .nav a.current,
+    .nav a:hover {
+        color: #c0392b;
+        font-weight: bold;
+    }
+
+    .route-container {
+        position: relative;
+        display: inline-block;
+        padding: 20px 16px;
+    }
+
+    .route {
+
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        min-width: 100vw;
+        height: 30vh;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 3;
+        background-color: #c0392b;
+    }
+
+    .dropdown a {
+        color: black;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .dropdown:hover {
+        display: inline-block;
+    }
+
+    .dropdown a:hover {
+        background-color: #ddd;
+    }
+
+    .route-container:hover .dropdown {
+        display: inline-block;
+    }
+
+</style>
+
+<script>
+    const nav = document.querySelector('.nav')
+    window.addEventListener('scroll', fixNav)
+
+    function fixNav() {
+        if(window.scrollY > nav.offsetHeight + 150) {
+            nav.classList.add('active')
+        } else {
+            nav.classList.remove('active')
+        }
+    }
+</script>

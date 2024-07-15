@@ -1,4 +1,95 @@
-<div class="homepage">
-  <h1>Welcome to base</h1>
-  <p>{% render 'homepage-text' %}</p>
+{% render "discovery-header" %}
+
+<div class="container">
+  <div class="item">
+    <a href="{{ pages['A'].url }}"><p>A</p></a>
+    <img class="" src="https://cdn.shopify.com/s/files/1/0563/8347/1662/files/tim-mossholder-jo_L74bHjws-unsplash.jpg?v=1716346232" alt="tag">
+  </div>
+  <div class="item">
+    <a href="{{ pages['M'].url }}"><p>M</p></a>
+    <img class="" src="https://cdn.shopify.com/s/files/1/0563/8347/1662/files/kiko-camaclang-dJT2m7dj3I4-unsplash.jpg?v=1716346232" alt="jj">
+  </div>
+  <div class="item">
+    <a href="{{ pages['E'].url }}?parameter=garden"><p>Shop</p></a>
+    <img class="" src="https://cdn.shopify.com/s/files/1/0563/8347/1662/files/josh-hild-s52NXbmZfCc-unsplash.jpg?v=1716346511" alt="mm">
+  </div> 
 </div>
+
+<style>
+    .container {
+      display: flex;
+      flex-direction: row;
+      height: 70vh;
+      width: 100vw;
+    }
+
+    .item {
+      position: relative;
+      flex: 1;
+      text-align: center;
+    }
+
+    .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+      z-index: -2;
+    }
+
+    .item p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2em;
+      z-index: 0;
+    }
+
+    .item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      z-index: -1;
+      transition: background-color 0.5s ease-in-out;
+    }
+
+    .item:hover::after {
+      background-color: #D9D9D959;
+      color: #000;
+    }
+
+    @media (max-width: 700px) {
+      .title-container {
+        height: 25vh;
+      }
+
+      .container {
+        flex-direction: column;
+        height: 75vh;
+      }
+
+      .item {
+        flex: 0;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      .item img {
+        display: block;
+        width: 100%;
+        height: 25vh;
+        object-fit: cover;
+      }
+
+      .item p {
+        font-size: 1.5em;
+      }
+  }
+</style>

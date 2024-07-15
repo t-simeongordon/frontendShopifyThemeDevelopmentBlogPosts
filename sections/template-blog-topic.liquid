@@ -1,4 +1,7 @@
 {% assign blogNames = section.settings.blogList | split: "," %}
+<div>
+  {% render "header" %}
+</div>
 <div class="all-blogs">
   <div class="blog-section">
     {% for blogName in blogNames %}

@@ -4,11 +4,14 @@
     <title>{{ page_title }}</title>
     <meta charset="utf-8">
     <meta name="description" content="{{ page_description | escape }}">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="orientation" content="portrait"> 
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     {{ content_for_header }}
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
-    {% comment %} {{ 'application.js' | asset_url | script_tag }} {% endcomment %}
+    {{ 'application.js' | asset_url | script_tag }}
   </head>
   <body>
     <main role="main">
@@ -16,3 +19,4 @@
     </main>
   </body>
 </html>
+

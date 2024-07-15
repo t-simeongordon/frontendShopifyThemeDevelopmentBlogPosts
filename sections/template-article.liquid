@@ -1,0 +1,110 @@
+<section>
+    <div>
+        {% render "header" %}
+    </div>
+    <div class="image-container">
+        <img src="{{ article.image.src |  image_url: width: "1200px" }}" alt="Article Image">
+    </div>
+    <h1>{{ article.title }}</h1>
+    <h1>Written by {{ article.author }}</h1>
+    <div class="time-container">
+        <time class="time-published" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }}</time>
+    </div>
+    <div id="cont">
+        {{ article.content }}
+    </div>
+</section>
+
+
+<style>
+    .time-container {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .article-feat-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #cont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        padding: 16px;
+        margin: 0 auto;
+        max-width: 800px;
+    }
+
+    #cont img {
+        max-width: 100%;
+        height: auto;
+        margin: 30px 0;
+    }
+
+    .image-container {
+        position: relative;
+            width: 100%;
+            max-width: 1600px; /* Optional: limit the max-width of the container */
+            margin: 20px auto; /* Center the container and add vertical margins */
+            padding: 0 10%; /* Add padding to the sides */
+            box-sizing: border-box; /* Include padding in the element's total width and height */
+            top: 70px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover; /* Ensures the image covers the container without distortion */
+            display: block; /* Removes the default inline-block spacing */
+        }
+
+    @media (max-width: 600px) {
+        #cont {
+            padding: 8px;
+            font-size: 0.875rem;
+        }
+    }
+</style>
+
+
+<script>
+    function highlightLinks(textElement) {
+    // Regular expression to match HTTP links
+    const urlRegex = /(?:https?:\/\/)?(?:www\.)?([^\s]+\.[^\s]+)/gi;
+
+
+    // Wrap matched links in a span with red color
+    const highlightedText = textElement.textContent.replace(urlRegex, (url) => {
+        // let urlString = url.toString()
+        // {%  assign testImg =  urlString %}
+        console.log("@@@@@url: "+url)
+        // const baseUrl = "https://cdn.shopify.com/s/files/1/1234/5678/9101/files/yellow-sofa-with-throw-pillows_925x_42eee940-efa1-4f29-ac31-640efc26a558"
+
+        return `<img src=${url}>`
+        // return `<span style="color: red">${url}</span>`;
+    });
+
+    // Update the element's innerHTML with the highlighted text
+    textElement.innerHTML = highlightedText;
+    }
+
+    // Get the element containing the text (e.g., paragraph, div)
+    const contentViewDiv = document.getElementById("cont");
+    // let text = "{{ testImg }}"
+    // console.log("@@@@@: "+text)
+
+    // Check if element exists
+    if (contentViewDiv) {
+    highlightLinks(contentViewDiv);
+    } else {
+    console.error("Text element not found!");
+    }
+</script>

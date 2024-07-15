@@ -1,0 +1,57 @@
+<section class="header-shop">
+    <nav class="nav-shop">
+        <div class="container-shop">
+            <div class="shop-categories">
+                <span>New Arrivals</span>
+                <span>Brands</span>
+                <span>Clothing</span>
+                <span>Footwear</span>
+                <span>Acccesories</span>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<style>
+ 
+    /* Header Shop Categories styles */
+    .header-shop {
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        top: 70px; /* Adjust based on the height of the fixed header */
+    }
+
+    .nav-shop {
+        border-top: 1px solid rgba(128, 128, 128, 0.5);
+        border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+        margin: 0 auto;
+    }
+
+    .container-shop {
+        position: relative;
+        background-color: white;
+        left: 0;
+        right: 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-shop .container-shop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .shop-categories {
+        color: black;
+        font-size: large;
+        margin: 20px;
+    }
+
+    .shop-categories span {
+        padding: 12px;
+    }
+</style>

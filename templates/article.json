@@ -1,7 +1,7 @@
 {
     "sections": {
         "template": {
-            "type": "template-portfolio"
+            "type": "template-article"
         }
     },
     "order": [

@@ -1,0 +1,10 @@
+{
+    "sections": {
+        "template": {
+            "type": "page-portfolio-display"
+        }
+    },
+    "order": [
+        "template"
+    ]
+}
