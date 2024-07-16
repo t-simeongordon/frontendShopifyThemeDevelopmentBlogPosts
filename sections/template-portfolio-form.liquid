@@ -4,13 +4,13 @@
     {% endif %}
     {% form 'inquiry' %}
         <label for="inquiry-name">Name</label>
-        <input type="text" name="inquiry[name]" id="inquiry_name">
+        <input type="text" name="contact[name]" id="inquiry_name">
 
         <label for="inquiry_">Email</label>
-        <input type="email" name="inquiry[email]" id="inquiry_email" >
+        <input type="email" name="contact[email]" id="inquiry_email" >
 
         <label for="inquiry_body"></label>
-        <textarea name="inquiry[body]" id="inquiry_body"></textarea>
+        <textarea name="contact[body]" id="inquiry_body"></textarea>
 
         <button type="submit" value="submi message">submit</button>
     {% endform %}
@@ -20,7 +20,7 @@
 {
     "name": "portfolio ",
     "settings": [
-        
+
     ]
 }
 {% endschema %}
