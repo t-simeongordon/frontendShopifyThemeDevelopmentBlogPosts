@@ -1,26 +1,107 @@
+<div>
+    {% render "header" %}
+</div>
 <div class="form-container">
-    {% if condition %}
-        
-    {% endif %}
-    {% form 'inquiry' %}
-        <label for="inquiry-name">Name</label>
-        <input type="text" name="contact[name]" id="inquiry_name">
+    {% form 'contact' %}
+        {% if form.errors %}
+            <div class="form-failed-state-container">
+                <ul>
+                    {% for field in form.errors %}
+                        {% for error in form.errors[field] %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% elsif form.posted_successfully %}
+            <div class="form-successful-state-container">
+                successful
+            </div>
+        {% endif %}
 
-        <label for="inquiry_">Email</label>
-        <input type="email" name="contact[email]" id="inquiry_email" >
+        <div class="form-item">
+            <label for="inquiry_name">Name</label>
+            <input type="text" name="contact[name]" id="inquiry_name">
+        </div>
 
-        <label for="inquiry_body"></label>
-        <textarea name="contact[body]" id="inquiry_body"></textarea>
+        <div class="form-item">
+            <label for="inquiry_email">Email</label>
+            <input type="email" name="contact[email]" id="inquiry_email">
+        </div>
 
-        <button type="submit" value="submi message">submit</button>
+        <div class="form-item">
+            <label for="inquiry_phone_number">Phone number</label>
+            <input type="number" name="contact[number]" id="inquiry_phone_number">
+        </div>
+
+        <div class="form-item">
+            <label for="inquiry_appointment">Best time to contact you</label>
+            <input type="datetime" name="contact[appointment]" id="inquiry_appointment">
+        </div>
+
+        <div class="form-item">
+            <label for="inquiry_body">Message</label>
+            <textarea name="contact[body]" id="inquiry_body"></textarea>
+        </div>
+
+        <div class="form-item">
+            <button type="submit">Submit</button>
+        </div>
     {% endform %}
 </div>
+
+
+<style>
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 3%;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 0;
+}
+
+.form-item input, .form-item textarea {
+    width: 50vw;
+}
+
+.form-failed-state-container, .form-successful-state-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.form-failed-state-container {
+    color: red;
+}
+
+.form-successful-state-container {
+    color: greenyellow;
+}
+</style>
 
 {% schema %}
 {
     "name": "portfolio ",
+    "presets": [
+        {
+            "name": "inquiry form"
+        }
+    ],
     "settings": [
-
+        
     ]
 }
 {% endschema %}
