@@ -3,22 +3,7 @@
 </div>
 <div class="form-container">
     {% form 'contact' %}
-        {% if form.errors %}
-            <div class="form-failed-state-container">
-                <ul>
-                    {% for field in form.errors %}
-                        {% for error in form.errors[field] %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    {% endfor %}
-                </ul>
-            </div>
-        {% elsif form.posted_successfully %}
-            <div class="form-successful-state-container">
-                successful
-            </div>
-        {% endif %}
-
+        
         <div class="form-item">
             <label for="inquiry_name">Name</label>
             <input type="text" name="contact[name]" id="inquiry_name">
@@ -47,6 +32,32 @@
         <div class="form-item">
             <button type="submit">Submit</button>
         </div>
+
+        {% if form.errors.messages == blank %}
+            {% comment %} <h1>successsssss</h1> {% endcomment %}
+
+        {% else %}
+            <h1> form.errors {{ form.errors  }}</h1>
+            <h1> form.errors.messages  {{ form.errors.messages  }}</h1>
+            <h1>{{ form.errors.messages[0]  }}</h1>
+            <h1> form.errors.translated_fields {{ form.errors.translated_fields  }}</h1>
+            <h1>{{ form.errors.translated_fields[0]  }}</h1>
+            
+            
+            <div class="form-failed-state-container">
+                <ul>
+                {% for error in form.errors %}
+                    <li>
+                    {% if error == 'form' %}
+                            <h1>test test</h1>
+                        {% else %}
+                            <h1>test 2222</h1>
+                    {% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
     {% endform %}
 </div>
 
