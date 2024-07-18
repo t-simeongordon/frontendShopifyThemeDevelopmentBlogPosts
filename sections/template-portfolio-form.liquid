@@ -35,7 +35,7 @@
 
         {% if form.errors.messages == blank %}
             {% comment %} <h1>successsssss</h1> {% endcomment %}
-
+            {% if form.posted_successfully? %} Thank you for your inquiry {% endif %}
         {% else %}
             <h1> form.errors {{ form.errors  }}</h1>
             <h1> form.errors.messages  {{ form.errors.messages  }}</h1>
@@ -49,9 +49,9 @@
                 {% for error in form.errors %}
                     <li>
                     {% if error == 'form' %}
-                            <h1>test test</h1>
+                        {{ form.errors.messages[error] }}
                         {% else %}
-                            <h1>test 2222</h1>
+                        {{ form.errors.translated_fields[error] }} - {{ form.errors.messages[error] }}    
                     {% endif %}
                     </li>
                 {% endfor %}
