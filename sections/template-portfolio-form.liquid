@@ -60,39 +60,39 @@
         {% endif %}
     {% endform %}
 </div>
-
 <style>
     .form-container {
         width: 100%;
-        max-width: 600px;
-        margin: 20px auto;
+        max-width: 500px;
+        margin: 40px auto;
         padding: 20px;
-        background-color: #ffffff;
-        border: 1px solid #dddddd;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border: 1px solid #eaeaea;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
     .form-item {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     .form-item label {
         display: block;
         margin-bottom: 8px;
-        font-weight: bold;
-        color: #333333;
+        font-size: 14px;
+        color: #555;
     }
 
     .form-item input,
     .form-item textarea {
         width: 100%;
         padding: 12px;
-        border: 1px solid #cccccc;
-        border-radius: 6px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
         font-size: 16px;
         box-sizing: border-box;
-        transition: border-color 0.3s;
+        transition: border-color 0.2s;
     }
 
     .form-item input:focus,
@@ -105,12 +105,12 @@
         width: 100%;
         padding: 12px;
         font-size: 16px;
-        color: #ffffff;
+        color: #fff;
         background-color: #007bff;
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition: background-color 0.2s;
     }
 
     .form-item button:hover {
@@ -121,14 +121,15 @@
         margin-top: 20px;
         padding: 15px;
         border: 1px solid #e1e1e1;
-        border-radius: 10px;
-        background-color: #ffe6e6;
-        color: #d9534f;
+        border-radius: 12px;
+        background-color: #f8d7da;
+        color: #721c24;
     }
 
     .form-failed-state-container ul {
         list-style: none;
         padding: 0;
+        margin: 0;
     }
 
     .form-failed-state-container li {
@@ -139,12 +140,13 @@
         margin-top: 20px;
         padding: 15px;
         border: 1px solid #e1e1e1;
-        border-radius: 10px;
-        background-color: #e6ffe6;
-        color: #5cb85c;
+        border-radius: 12px;
+        background-color: #d4edda;
+        color: #155724;
         text-align: center;
     }
 </style>
+
 
 
 {% schema %}
